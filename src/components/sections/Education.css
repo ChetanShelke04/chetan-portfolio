@@ -1,0 +1,93 @@
+/* ==========================================================================
+   EDUCATION COMPONENT STYLES
+   ========================================================================== */
+
+.education-section {
+  padding: 80px 0;
+  position: relative;
+}
+
+.education-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+  gap: 28px;
+}
+
+.education-item-card {
+  padding: 32px;
+  display: flex;
+  align-items: flex-start;
+  gap: 22px;
+  border-radius: var(--radius-lg);
+}
+
+.edu-avatar-box {
+  width: 58px;
+  height: 58px;
+  border-radius: var(--radius-md);
+  background: var(--badge-bg);
+  border: 1px solid var(--badge-border);
+  color: var(--accent-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.edu-details-body {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+}
+
+.edu-title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.degree-name {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.edu-time-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8rem;
+}
+
+.institution-name {
+  font-size: 0.98rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.edu-status-note {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.84rem;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+.award-icon {
+  color: var(--accent-secondary);
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .education-cards-grid {
+    grid-template-columns: 1fr;
+  }
+  .education-item-card {
+    padding: 22px;
+    gap: 16px;
+  }
+}

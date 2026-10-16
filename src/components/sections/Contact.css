@@ -1,0 +1,188 @@
+/* ==========================================================================
+   CONTACT COMPONENT STYLES
+   ========================================================================== */
+
+.contact-section {
+  padding: 80px 0;
+  position: relative;
+}
+
+.contact-hub-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  align-items: stretch;
+}
+
+/* Left Column: Direct Channels */
+.contact-cards-col {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.contact-channel-card {
+  padding: 22px 26px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  border-radius: var(--radius-lg);
+  position: relative;
+}
+
+.channel-icon-box {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-md);
+  background: var(--badge-bg);
+  border: 1px solid var(--badge-border);
+  color: var(--accent-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.channel-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+}
+
+.channel-label {
+  font-size: 0.78rem;
+  font-family: var(--font-heading);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+}
+
+.channel-value-link {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  word-break: break-all;
+  transition: color var(--transition-fast);
+}
+
+.channel-value-link:hover {
+  color: var(--accent-primary);
+}
+
+.channel-static-value {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.channel-copy-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: var(--radius-sm);
+  background: var(--bg-subtle);
+  border: 1px solid var(--border-subtle);
+  font-size: 0.78rem;
+  font-family: var(--font-mono);
+  color: var(--text-secondary);
+  transition: all var(--transition-fast);
+}
+
+.channel-copy-btn:hover {
+  border-color: var(--border-hover);
+  color: var(--accent-primary);
+}
+
+.text-emerald {
+  color: #10b981;
+}
+
+/* Right Column: Action Card */
+.contact-action-col {
+  display: flex;
+}
+
+.contact-action-card {
+  padding: 36px;
+  border-radius: var(--radius-lg);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 24px;
+  width: 100%;
+}
+
+.action-header {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.action-title {
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.action-desc {
+  font-size: 0.96rem;
+  line-height: 1.65;
+  color: var(--text-secondary);
+}
+
+.social-action-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.social-action-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 20px;
+  border-radius: var(--radius-md);
+  background: var(--bg-subtle);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-primary);
+  font-size: 0.92rem;
+  font-weight: 500;
+  transition: all var(--transition-fast);
+}
+
+.social-action-btn:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--border-hover);
+  color: var(--accent-primary);
+  transform: translateX(4px);
+}
+
+.direct-mail-action {
+  padding-top: 16px;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.send-mail-btn {
+  width: 100%;
+  padding: 12px 24px;
+  font-size: 0.95rem;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .contact-hub-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .contact-channel-card {
+    flex-wrap: wrap;
+    padding: 18px;
+  }
+  .contact-action-card {
+    padding: 24px;
+  }
+}
