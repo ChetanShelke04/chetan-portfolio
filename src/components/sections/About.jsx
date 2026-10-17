@@ -5,9 +5,6 @@ import {
   ShieldCheck, 
   MapPin, 
   Briefcase, 
-  Mail, 
-  Phone, 
-  Layers, 
   Cpu 
 } from 'lucide-react';
 import { resumeData } from '../../data/resume';

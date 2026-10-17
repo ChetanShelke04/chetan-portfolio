@@ -13,7 +13,6 @@ import {
   Briefcase, 
   Layers, 
   GraduationCap, 
-  Check, 
   Loader2, 
   Eye, 
   Edit3 

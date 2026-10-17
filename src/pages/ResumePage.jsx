@@ -7,10 +7,7 @@ import {
   ArrowLeft, 
   FileText, 
   Eye, 
-  CheckCircle2, 
-  Sparkles, 
   Share2, 
-  MapPin, 
   Mail, 
   Phone 
 } from 'lucide-react';

@@ -1,12 +1,8 @@
-import React from 'react';
 import { 
-  Layers, 
   Workflow, 
   ShieldCheck, 
   Database, 
   Cpu, 
-  ArrowUpRight, 
-  Sparkles, 
   Server, 
   CheckCircle2 
 } from 'lucide-react';

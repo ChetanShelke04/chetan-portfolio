@@ -1,5 +1,5 @@
 import React from 'react';
-import { GraduationCap, Calendar, MapPin, Award } from 'lucide-react';
+import { GraduationCap, Calendar, Award } from 'lucide-react';
 import { resumeData } from '../../data/resume';
 import './Education.css';
 

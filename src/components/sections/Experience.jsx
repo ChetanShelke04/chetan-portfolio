@@ -1,5 +1,5 @@
 import React from 'react';
-import { Briefcase, Calendar, MapPin, CheckCircle, Building2 } from 'lucide-react';
+import { Briefcase, Calendar, MapPin, Building2 } from 'lucide-react';
 import { resumeData } from '../../data/resume';
 import './Experience.css';
 

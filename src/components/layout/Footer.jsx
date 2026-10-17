@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { Link } from 'react-router-dom';
-import { Mail, Phone, MapPin, ArrowUp, Heart, Terminal } from 'lucide-react';
+import { Mail, Phone, MapPin, ArrowUp, Terminal } from 'lucide-react';
 import { GithubIcon, LinkedinIcon } from '../common/Icons';
 import { resumeData } from '../../data/resume';
 import './Footer.css';
@@ -10,7 +10,7 @@ export default function Footer() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const currentYear = new Date().getFullYear();
+  const currentYear = useMemo(() => new Date().getFullYear(), []);
 
   return (
     <footer className="footer-section">

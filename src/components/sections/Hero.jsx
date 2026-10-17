@@ -9,8 +9,7 @@ import {
   Cpu, 
   Database, 
   ShieldCheck, 
-  CheckCircle2, 
-  Layers 
+  CheckCircle2 
 } from 'lucide-react';
 import { resumeData } from '../../data/resume';
 import './Hero.css';

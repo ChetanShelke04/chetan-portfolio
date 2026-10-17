@@ -65,6 +65,7 @@ export default function ContactForm() {
         setStatus('error');
       }
     } catch (err) {
+      console.error('Contact form submission error:', err);
       setErrorMessage('Network connection error. Please try again or use direct email.');
       setStatus('error');
     }

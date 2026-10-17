@@ -1,5 +1,4 @@
-import React from 'react';
-import { Document, Page, Text, View, StyleSheet, Font, renderToFile } from '@react-pdf/renderer';
+import { Document, Page, Text, View, StyleSheet, renderToFile } from '@react-pdf/renderer';
 import { resumeData } from '../src/data/resume.js';
 import path from 'path';
 import { fileURLToPath } from 'url';
