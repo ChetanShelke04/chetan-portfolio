@@ -1,3 +1,4 @@
+import React from 'react';
 import { Document, Page, Text, View, StyleSheet, renderToFile } from '@react-pdf/renderer';
 import { resumeData } from '../src/data/resume.js';
 import path from 'path';
@@ -8,153 +9,155 @@ const __dirname = path.dirname(__filename);
 
 const styles = StyleSheet.create({
   page: {
-    padding: 36,
+    paddingTop: 32,
+    paddingBottom: 32,
+    paddingHorizontal: 36,
     fontFamily: 'Helvetica',
-    fontSize: 9.5,
-    color: '#1a1a1a',
-    lineHeight: 1.4,
+    fontSize: 9,
+    color: '#1e293b',
+    lineHeight: 1.35,
   },
   header: {
     textAlign: 'center',
-    marginBottom: 14,
+    marginBottom: 10,
     borderBottomWidth: 1.5,
     borderBottomColor: '#2563eb',
-    paddingBottom: 10,
+    paddingBottom: 8,
   },
   name: {
     fontSize: 20,
-    fontWeight: 'bold',
+    fontFamily: 'Helvetica-Bold',
     color: '#0f172a',
-    letterSpacing: 0.5,
+    letterSpacing: 0.8,
+    textTransform: 'uppercase',
   },
   title: {
-    fontSize: 11,
+    fontSize: 10.5,
+    fontFamily: 'Helvetica-Bold',
     color: '#2563eb',
     marginTop: 2,
-    fontWeight: 'bold',
+    letterSpacing: 0.3,
   },
   contactRow: {
     flexDirection: 'row',
     justifyContent: 'center',
-    gap: 12,
-    marginTop: 6,
+    alignItems: 'center',
+    gap: 8,
+    marginTop: 5,
     fontSize: 8.5,
     color: '#475569',
-    flexWrap: 'wrap',
+  },
+  contactItem: {
+    color: '#334155',
+  },
+  bulletSep: {
+    color: '#94a3b8',
+    fontSize: 7,
   },
   section: {
-    marginTop: 10,
-    marginBottom: 4,
+    marginTop: 8,
+    marginBottom: 2,
   },
   sectionTitle: {
-    fontSize: 11,
-    fontWeight: 'bold',
+    fontSize: 10,
+    fontFamily: 'Helvetica-Bold',
     color: '#0f172a',
     borderBottomWidth: 1,
     borderBottomColor: '#cbd5e1',
     paddingBottom: 2,
-    marginBottom: 6,
+    marginBottom: 5,
     textTransform: 'uppercase',
     letterSpacing: 0.5,
   },
   summaryText: {
-    fontSize: 9,
+    fontSize: 8.5,
     color: '#334155',
-    lineHeight: 1.45,
+    lineHeight: 1.4,
     textAlign: 'justify',
   },
   skillsCategory: {
     flexDirection: 'row',
-    marginBottom: 3,
-    fontSize: 8.5,
+    marginBottom: 2.5,
+    fontSize: 8.2,
   },
   skillCategoryTitle: {
-    fontWeight: 'bold',
+    fontFamily: 'Helvetica-Bold',
     color: '#0f172a',
-    width: 140,
+    width: 145,
   },
   skillCategoryItems: {
     flex: 1,
     color: '#334155',
   },
-  expItem: {
-    marginBottom: 8,
+  itemBlock: {
+    marginBottom: 6,
   },
-  expHeader: {
+  itemHeader: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'baseline',
   },
-  expRole: {
-    fontSize: 10,
-    fontWeight: 'bold',
+  roleTitle: {
+    fontSize: 9.5,
+    fontFamily: 'Helvetica-Bold',
     color: '#0f172a',
   },
-  expPeriod: {
-    fontSize: 8.5,
+  periodDate: {
+    fontSize: 8,
+    fontFamily: 'Helvetica-Bold',
     color: '#64748b',
-    fontWeight: 'bold',
   },
-  expCompany: {
-    fontSize: 9,
+  companyLine: {
+    fontSize: 8.5,
     color: '#2563eb',
-    marginBottom: 3,
-  },
-  bulletPoint: {
-    flexDirection: 'row',
     marginBottom: 2.5,
-    paddingLeft: 6,
+    fontFamily: 'Helvetica-Bold',
+  },
+  bulletRow: {
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    marginBottom: 2,
+    paddingLeft: 4,
   },
   bulletDot: {
-    width: 10,
-    fontSize: 8.5,
-    color: '#2563eb',
+    width: 3.5,
+    height: 3.5,
+    borderRadius: 2,
+    backgroundColor: '#2563eb',
+    marginTop: 4,
+    marginRight: 6,
+    flexShrink: 0,
   },
-  bulletContent: {
+  bulletText: {
     flex: 1,
-    fontSize: 8.5,
+    fontSize: 8.2,
     color: '#334155',
     lineHeight: 1.35,
   },
-  projectItem: {
-    marginBottom: 7,
-  },
-  projectTitleRow: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'baseline',
-  },
-  projectTitle: {
-    fontSize: 9.5,
-    fontWeight: 'bold',
-    color: '#0f172a',
-  },
-  projectCategory: {
-    fontSize: 8,
+  projectDomain: {
+    fontSize: 7.5,
+    fontFamily: 'Helvetica-Bold',
     color: '#059669',
-    fontWeight: 'bold',
   },
-  projectTech: {
-    fontSize: 8,
-    color: '#475569',
+  projectTechLine: {
+    fontSize: 7.8,
+    color: '#64748b',
     fontStyle: 'italic',
     marginBottom: 2,
   },
-  eduItem: {
+  eduRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     marginBottom: 3,
-    fontSize: 8.5,
   },
   eduDegree: {
-    fontWeight: 'bold',
+    fontSize: 8.5,
+    fontFamily: 'Helvetica-Bold',
     color: '#0f172a',
   },
   eduInst: {
+    fontFamily: 'Helvetica',
     color: '#475569',
-  },
-  eduPeriod: {
-    color: '#64748b',
   },
 });
 
@@ -164,20 +167,18 @@ function ResumePdfDocument() {
   return (
     <Document title="Chetan_Shelke_Resume" author="Chetan Shelke">
       <Page size="A4" style={styles.page}>
-        {/* Header */}
+        {/* Header - No github */}
         <View style={styles.header}>
           <Text style={styles.name}>{personalInfo.name}</Text>
           <Text style={styles.title}>{personalInfo.title}</Text>
           <View style={styles.contactRow}>
-            <Text>{personalInfo.location}</Text>
-            <Text>•</Text>
-            <Text>{personalInfo.phone}</Text>
-            <Text>•</Text>
-            <Text>{personalInfo.email}</Text>
-            <Text>•</Text>
-            <Text>linkedin.com/in/chetan-shelke</Text>
-            <Text>•</Text>
-            <Text>github.com/ChetanShelke04</Text>
+            <Text style={styles.contactItem}>{personalInfo.location}</Text>
+            <Text style={styles.bulletSep}>|</Text>
+            <Text style={styles.contactItem}>{personalInfo.phone}</Text>
+            <Text style={styles.bulletSep}>|</Text>
+            <Text style={styles.contactItem}>{personalInfo.email}</Text>
+            <Text style={styles.bulletSep}>|</Text>
+            <Text style={styles.contactItem}>linkedin.com/in/chetan-shelke</Text>
           </View>
         </View>
 
@@ -202,15 +203,15 @@ function ResumePdfDocument() {
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>Work Experience</Text>
           {experience.map((exp, idx) => (
-            <View key={idx} style={styles.expItem}>
-              <View style={styles.expHeader}>
-                <Text style={styles.expRole}>{exp.role}</Text>
-                <Text style={styles.expPeriod}>{exp.period}</Text>
+            <View key={idx} style={styles.itemBlock} wrap={false}>
+              <View style={styles.itemHeader}>
+                <Text style={styles.roleTitle}>{exp.role}</Text>
+                <Text style={styles.periodDate}>{exp.period}</Text>
               </View>
-              <Text style={styles.expCompany}>{exp.company} | {exp.location}</Text>
+              <Text style={styles.companyLine}>{exp.company} | {exp.location}</Text>
               {exp.highlights.map((bullet, bIdx) => (
-                <View key={bIdx} style={styles.bulletPoint}>
-                  <Text style={styles.bulletDot}>•</Text>
+                <View key={bIdx} style={styles.bulletRow}>
+                  <View style={styles.bulletDot} />
                   <Text style={styles.bulletContent}>{bullet}</Text>
                 </View>
               ))}
@@ -222,15 +223,15 @@ function ResumePdfDocument() {
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>Key Projects</Text>
           {projects.map((proj, idx) => (
-            <View key={idx} style={styles.projectItem}>
-              <View style={styles.projectTitleRow}>
-                <Text style={styles.projectTitle}>{proj.title}</Text>
-                <Text style={styles.projectCategory}>[{proj.category}]</Text>
+            <View key={idx} style={styles.itemBlock} wrap={false}>
+              <View style={styles.itemHeader}>
+                <Text style={styles.roleTitle}>{proj.title}</Text>
+                <Text style={styles.projectDomain}>[{proj.category}]</Text>
               </View>
-              <Text style={styles.projectTech}>Tech Stack: {proj.technologies.join(', ')}</Text>
+              <Text style={styles.projectTechLine}>Tech Stack: {proj.technologies.join(', ')}</Text>
               {proj.highlights.map((bullet, bIdx) => (
-                <View key={bIdx} style={styles.bulletPoint}>
-                  <Text style={styles.bulletDot}>▹</Text>
+                <View key={bIdx} style={styles.bulletRow}>
+                  <View style={styles.bulletDot} />
                   <Text style={styles.bulletContent}>{bullet}</Text>
                 </View>
               ))}
@@ -239,12 +240,12 @@ function ResumePdfDocument() {
         </View>
 
         {/* Education */}
-        <View style={styles.section}>
+        <View style={styles.section} wrap={false}>
           <Text style={styles.sectionTitle}>Education</Text>
           {education.map((edu, idx) => (
-            <View key={idx} style={styles.eduItem}>
+            <View key={idx} style={styles.eduRow}>
               <Text style={styles.eduDegree}>{edu.degree} — <Text style={styles.eduInst}>{edu.institution}</Text></Text>
-              <Text style={styles.eduPeriod}>{edu.period}</Text>
+              <Text style={styles.periodDate}>{edu.period}</Text>
             </View>
           ))}
         </View>
@@ -254,11 +255,11 @@ function ResumePdfDocument() {
 }
 
 const outputPath = path.resolve(__dirname, '../public/resume.pdf');
-console.log('Generating PDF to:', outputPath);
+console.log('Regenerating PDF to:', outputPath);
 
 renderToFile(<ResumePdfDocument />, outputPath)
   .then(() => {
-    console.log('Successfully generated /public/resume.pdf!');
+    console.log('Successfully regenerated /public/resume.pdf!');
   })
   .catch((err) => {
     console.error('Error generating PDF:', err);

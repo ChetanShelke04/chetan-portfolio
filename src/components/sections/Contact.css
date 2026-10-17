@@ -1,5 +1,5 @@
 /* ==========================================================================
-   CONTACT COMPONENT STYLES
+   DIRECT CONTACT COMPONENT STYLES
    ========================================================================== */
 
 .contact-section {
@@ -7,32 +7,36 @@
   position: relative;
 }
 
-.contact-hub-grid {
+.direct-contact-grid {
   display: grid;
-  grid-template-columns: 0.9fr 1.1fr;
-  gap: 32px;
-  align-items: flex-start;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 36px;
 }
 
-/* Left Column: Direct Channels */
-.contact-cards-col {
+.direct-channel-card {
+  padding: 28px;
+  border-radius: var(--radius-lg);
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  justify-content: space-between;
+  gap: 20px;
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
 }
 
-.contact-channel-card {
-  padding: 20px 24px;
+.direct-channel-card:hover {
+  transform: translateY(-4px);
+}
+
+.channel-top {
   display: flex;
   align-items: center;
-  gap: 16px;
-  border-radius: var(--radius-lg);
-  position: relative;
+  justify-content: space-between;
 }
 
 .channel-icon-box {
-  width: 44px;
-  height: 44px;
+  width: 48px;
+  height: 48px;
   border-radius: var(--radius-md);
   background: var(--badge-bg);
   border: 1px solid var(--badge-border);
@@ -40,40 +44,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-shrink: 0;
-}
-
-.channel-info {
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
-  flex: 1;
-}
-
-.channel-label {
-  font-size: 0.74rem;
-  font-family: var(--font-heading);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--text-muted);
-}
-
-.channel-value-link {
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: var(--text-primary);
-  word-break: break-all;
-  transition: color var(--transition-fast);
-}
-
-.channel-value-link:hover {
-  color: var(--accent-primary);
-}
-
-.channel-static-value {
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: var(--text-primary);
 }
 
 .channel-copy-btn {
@@ -84,7 +54,7 @@
   border-radius: var(--radius-sm);
   background: var(--bg-subtle);
   border: 1px solid var(--border-subtle);
-  font-size: 0.76rem;
+  font-size: 0.78rem;
   font-family: var(--font-mono);
   color: var(--text-secondary);
   transition: all var(--transition-fast);
@@ -99,71 +69,150 @@
   color: #10b981;
 }
 
-/* Social Cards Strip */
-.contact-social-strip {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 14px;
-  margin-top: 4px;
-}
-
-.social-channel-card {
-  padding: 16px 18px;
+.channel-body {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  text-decoration: none;
-  transition: all var(--transition-fast);
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
 }
 
-.social-channel-card:hover {
-  transform: translateY(-2px);
-  border-color: var(--border-hover);
-  box-shadow: var(--shadow-md);
+.channel-label {
+  font-size: 0.76rem;
+  font-family: var(--font-heading);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
 }
 
-.social-card-left {
-  display: flex;
-  align-items: center;
-  gap: 12px;
+.channel-main-value {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  word-break: break-all;
+  line-height: 1.3;
+  transition: color var(--transition-fast);
 }
 
-.social-icon {
+a.channel-main-value:hover {
   color: var(--accent-primary);
 }
 
-.social-card-name {
-  font-size: 0.9rem;
+.channel-desc {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.channel-footer {
+  padding-top: 16px;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.channel-action-btn {
+  width: 100%;
+  padding: 10px 18px;
+  font-size: 0.88rem;
+}
+
+.social-mini-strip {
+  display: flex;
+  gap: 10px;
+}
+
+.social-mini-btn {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 10px 14px;
+  border-radius: var(--radius-md);
+  background: var(--bg-subtle);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-primary);
+  font-size: 0.84rem;
+  font-weight: 600;
+  transition: all var(--transition-fast);
+}
+
+.social-mini-btn:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--border-hover);
+  color: var(--accent-primary);
+  transform: translateY(-2px);
+}
+
+/* Resume Banner */
+.contact-resume-banner {
+  padding: 28px 36px;
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  flex-wrap: wrap;
+  background: linear-gradient(135deg, var(--bg-card) 0%, rgba(56, 189, 248, 0.05) 100%);
+  border: 1px solid var(--border-subtle);
+}
+
+.resume-banner-left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex: 1;
+  min-width: 300px;
+}
+
+.banner-icon-box {
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-md);
+  background: var(--accent-gradient);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 4px 14px var(--accent-glow);
+}
+
+.banner-title {
+  font-size: 1.25rem;
   font-weight: 700;
   color: var(--text-primary);
-  display: block;
+  margin-bottom: 4px;
 }
 
-.social-card-sub {
-  font-size: 0.72rem;
-  color: var(--text-muted);
-  display: block;
+.banner-desc {
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
 }
 
-/* Right Column: Form Container */
-.contact-form-col {
+.resume-banner-actions {
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
 }
 
 /* Responsive */
-@media (max-width: 960px) {
-  .contact-hub-grid {
+@media (max-width: 1024px) {
+  .direct-contact-grid {
     grid-template-columns: 1fr;
   }
 }
 
 @media (max-width: 640px) {
-  .contact-channel-card {
-    flex-wrap: wrap;
-    padding: 16px;
+  .contact-resume-banner {
+    padding: 22px;
+    flex-direction: column;
+    align-items: stretch;
   }
-  .contact-social-strip {
-    grid-template-columns: 1fr;
+  .resume-banner-actions {
+    flex-direction: column;
+  }
+  .resume-banner-actions .btn {
+    width: 100%;
   }
 }

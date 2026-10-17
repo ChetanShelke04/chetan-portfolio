@@ -5,9 +5,8 @@ import { ThemeProvider } from './context/ThemeContext';
 import Layout from './components/layout/Layout';
 import Home from './pages/Home';
 
-// Code-split heavy routes for lightning-fast initial load
+// Lazy-load ResumePage for lightning-fast initial load
 const ResumePage = lazy(() => import('./pages/ResumePage'));
-const ResumeBuilderPage = lazy(() => import('./pages/ResumeBuilderPage'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage'));
 
 function PageLoader() {
@@ -23,7 +22,7 @@ function PageLoader() {
     }}>
       <Loader2 size={32} className="spinner" />
       <span style={{ fontSize: '0.9rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)' }}>
-        Loading interactive module...
+        Loading module...
       </span>
     </div>
   );
@@ -38,7 +37,6 @@ export default function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/resume" element={<ResumePage />} />
-              <Route path="/resume-builder" element={<ResumeBuilderPage />} />
               <Route path="*" element={<NotFoundPage />} />
             </Routes>
           </Suspense>

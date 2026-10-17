@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { 
   ArrowRight, 
   Download, 
-  Sparkles, 
+  Phone, 
   Terminal, 
   Server, 
   Cpu, 
@@ -47,12 +47,12 @@ export default function Hero() {
               </a>
               <Link to="/resume" className="btn btn-secondary">
                 <Download size={16} />
-                <span>View Resume</span>
+                <span>View & Download Resume</span>
               </Link>
-              <Link to="/resume-builder" className="btn btn-secondary">
-                <Sparkles size={16} className="sparkle-icon" />
-                <span>Resume Builder</span>
-              </Link>
+              <a href="#contact" className="btn btn-secondary">
+                <Phone size={16} />
+                <span>Get in Touch</span>
+              </a>
             </div>
 
             {/* Quick Highlights list */}

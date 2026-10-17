@@ -1,15 +1,18 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { 
   Mail, 
   Phone, 
   MapPin, 
   Copy, 
   Check, 
-  ArrowUpRight 
+  ArrowUpRight, 
+  Download, 
+  FileText, 
+  Send 
 } from 'lucide-react';
 import { GithubIcon, LinkedinIcon } from '../common/Icons';
 import { resumeData } from '../../data/resume';
-import ContactForm from './ContactForm';
 import './Contact.css';
 
 export default function Contact() {
@@ -33,27 +36,20 @@ export default function Contact() {
       <div className="container">
         {/* Section Header */}
         <div className="section-header">
-          <span className="badge">Get in Touch</span>
-          <h2 className="section-title">Let's Connect</h2>
+          <span className="badge">Direct Inquiries</span>
+          <h2 className="section-title">Let's Connect Directly</h2>
           <p className="section-subtitle">
-            Open for technical discussions, backend engineering opportunities, or system architecture inquiries.
+            Looking for a Java Backend Developer with 4 years of experience? Reach out directly via mobile, email, or LinkedIn.
           </p>
         </div>
 
-        {/* Contact Hub Layout */}
-        <div className="contact-hub-grid">
-          {/* Left Column: Direct Interactive Channels & Socials */}
-          <div className="contact-cards-col">
-            {/* Direct Channel Cards */}
-            <div className="glass-panel contact-channel-card">
+        {/* Direct Contact Cards Grid */}
+        <div className="direct-contact-grid">
+          {/* Email Direct Channel */}
+          <div className="glass-panel direct-channel-card">
+            <div className="channel-top">
               <div className="channel-icon-box">
                 <Mail size={22} />
-              </div>
-              <div className="channel-info">
-                <span className="channel-label">Email Address</span>
-                <a href={`mailto:${personalInfo.email}`} className="channel-value-link">
-                  {personalInfo.email}
-                </a>
               </div>
               <button
                 type="button"
@@ -61,21 +57,32 @@ export default function Contact() {
                 onClick={() => copyToClipboard(personalInfo.email, 'email')}
                 title="Copy Email to Clipboard"
               >
-                {copiedEmail ? <Check size={16} className="text-emerald" /> : <Copy size={16} />}
-                <span>{copiedEmail ? 'Copied' : 'Copy'}</span>
+                {copiedEmail ? <Check size={15} className="text-emerald" /> : <Copy size={15} />}
+                <span>{copiedEmail ? 'Copied!' : 'Copy'}</span>
               </button>
             </div>
 
-            {/* Phone Card */}
-            <div className="glass-panel contact-channel-card">
+            <div className="channel-body">
+              <span className="channel-label">Email Address</span>
+              <a href={`mailto:${personalInfo.email}`} className="channel-main-value">
+                {personalInfo.email}
+              </a>
+              <p className="channel-desc">Click to compose an email directly from your mail client.</p>
+            </div>
+
+            <div className="channel-footer">
+              <a href={`mailto:${personalInfo.email}?subject=Job%20Opportunity%20for%20Chetan%20Shelke`} className="btn btn-primary channel-action-btn">
+                <Send size={15} />
+                <span>Send Direct Email</span>
+              </a>
+            </div>
+          </div>
+
+          {/* Phone Direct Channel */}
+          <div className="glass-panel direct-channel-card">
+            <div className="channel-top">
               <div className="channel-icon-box">
                 <Phone size={22} />
-              </div>
-              <div className="channel-info">
-                <span className="channel-label">Phone / WhatsApp</span>
-                <a href={`tel:${personalInfo.phone.replace(/[^0-9+]/g, '')}`} className="channel-value-link">
-                  {personalInfo.phone}
-                </a>
               </div>
               <button
                 type="button"
@@ -83,62 +90,99 @@ export default function Contact() {
                 onClick={() => copyToClipboard(personalInfo.phone, 'phone')}
                 title="Copy Phone Number to Clipboard"
               >
-                {copiedPhone ? <Check size={16} className="text-emerald" /> : <Copy size={16} />}
-                <span>{copiedPhone ? 'Copied' : 'Copy'}</span>
+                {copiedPhone ? <Check size={15} className="text-emerald" /> : <Copy size={15} />}
+                <span>{copiedPhone ? 'Copied!' : 'Copy'}</span>
               </button>
             </div>
 
-            {/* Location Card */}
-            <div className="glass-panel contact-channel-card">
-              <div className="channel-icon-box">
-                <MapPin size={22} />
-              </div>
-              <div className="channel-info">
-                <span className="channel-label">Current Location</span>
-                <span className="channel-static-value">{personalInfo.location}</span>
-              </div>
-              <span className="badge">Open to Relocation / Hybrid</span>
+            <div className="channel-body">
+              <span className="channel-label">Mobile & WhatsApp</span>
+              <a href={`tel:${personalInfo.phone.replace(/[^0-9+]/g, '')}`} className="channel-main-value">
+                {personalInfo.phone}
+              </a>
+              <p className="channel-desc">Direct call or WhatsApp messaging for interview scheduling.</p>
             </div>
 
-            {/* Social Link Cards */}
-            <div className="contact-social-strip">
-              <a
-                href={personalInfo.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="glass-panel social-channel-card"
-              >
-                <div className="social-card-left">
-                  <LinkedinIcon size={20} className="social-icon" />
-                  <div>
-                    <span className="social-card-name">LinkedIn</span>
-                    <span className="social-card-sub">Professional Network</span>
-                  </div>
-                </div>
-                <ArrowUpRight size={16} />
-              </a>
-
-              <a
-                href={personalInfo.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="glass-panel social-channel-card"
-              >
-                <div className="social-card-left">
-                  <GithubIcon size={20} className="social-icon" />
-                  <div>
-                    <span className="social-card-name">GitHub</span>
-                    <span className="social-card-sub">Repositories & Code</span>
-                  </div>
-                </div>
-                <ArrowUpRight size={16} />
+            <div className="channel-footer">
+              <a href={`tel:${personalInfo.phone.replace(/[^0-9+]/g, '')}`} className="btn btn-secondary channel-action-btn">
+                <Phone size={15} />
+                <span>Call Directly</span>
               </a>
             </div>
           </div>
 
-          {/* Right Column: Client-Side Interactive Form */}
-          <div className="contact-form-col">
-            <ContactForm />
+          {/* Location & Relocation Card */}
+          <div className="glass-panel direct-channel-card">
+            <div className="channel-top">
+              <div className="channel-icon-box">
+                <MapPin size={22} />
+              </div>
+              <span className="badge badge-emerald">Available</span>
+            </div>
+
+            <div className="channel-body">
+              <span className="channel-label">Current Location</span>
+              <span className="channel-main-value">{personalInfo.location}</span>
+              <p className="channel-desc">Open for on-site, hybrid, or remote backend developer positions.</p>
+            </div>
+
+            <div className="channel-footer">
+              <div className="social-mini-strip">
+                <a
+                  href={personalInfo.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="social-mini-btn"
+                  title="Connect on LinkedIn"
+                >
+                  <LinkedinIcon size={16} />
+                  <span>LinkedIn</span>
+                  <ArrowUpRight size={13} />
+                </a>
+
+                <a
+                  href={personalInfo.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="social-mini-btn"
+                  title="Explore GitHub Repositories"
+                >
+                  <GithubIcon size={16} />
+                  <span>GitHub</span>
+                  <ArrowUpRight size={13} />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Quick Resume Download Banner */}
+        <div className="contact-resume-banner glass-panel">
+          <div className="resume-banner-left">
+            <div className="banner-icon-box">
+              <FileText size={26} />
+            </div>
+            <div>
+              <h3 className="banner-title">Need a Copy of My Resume?</h3>
+              <p className="banner-desc">
+                Download my verified ATS-formatted resume with complete details of my Spring Boot, Kafka, and Microservices experience.
+              </p>
+            </div>
+          </div>
+
+          <div className="resume-banner-actions">
+            <Link to="/resume" className="btn btn-secondary">
+              <FileText size={16} />
+              <span>View Online</span>
+            </Link>
+            <a
+              href="/resume.pdf"
+              download="Chetan_Shelke_Resume.pdf"
+              className="btn btn-primary"
+            >
+              <Download size={16} />
+              <span>Download PDF</span>
+            </a>
           </div>
         </div>
       </div>

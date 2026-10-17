@@ -26,7 +26,7 @@ export const resumeData = {
   experience: [
     {
       role: "Software Engineer",
-      company: "DMH & Research Centre",
+      company: "DMH Research Center",
       location: "Pune",
       period: "Oct 2025 – Present",
       // CONFIRM: Resume states start date Oct 2025 – Present (confirm timeline accuracy)

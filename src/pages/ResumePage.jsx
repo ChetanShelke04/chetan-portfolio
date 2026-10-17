@@ -11,7 +11,7 @@ import {
   Mail, 
   Phone 
 } from 'lucide-react';
-import { GithubIcon, LinkedinIcon } from '../components/common/Icons';
+import { LinkedinIcon } from '../components/common/Icons';
 import { resumeData } from '../data/resume';
 import './ResumePage.css';
 
@@ -126,10 +126,6 @@ export default function ResumePage() {
               <LinkedinIcon size={14} />
               <span>LinkedIn</span>
             </a>
-            <a href={personalInfo.github} target="_blank" rel="noopener noreferrer" className="quick-contact-pill">
-              <GithubIcon size={14} />
-              <span>GitHub</span>
-            </a>
           </div>
         </div>
 
@@ -193,8 +189,6 @@ export default function ResumePage() {
                   <span>{personalInfo.email}</span>
                   <span>•</span>
                   <a href={personalInfo.linkedin} target="_blank" rel="noreferrer">LinkedIn</a>
-                  <span>•</span>
-                  <a href={personalInfo.github} target="_blank" rel="noreferrer">GitHub</a>
                 </div>
               </header>
 

@@ -49,9 +49,9 @@ export default function Footer() {
               <li><a href="/#skills">Skills & Stack</a></li>
               <li><a href="/#experience">Work Experience</a></li>
               <li><a href="/#projects">Featured Projects</a></li>
-              <li><Link to="/resume">Resume Viewer</Link></li>
-              <li><Link to="/resume-builder">Resume Builder</Link></li>
-              <li><a href="/#contact">Contact</a></li>
+              <li><a href="/#education">Education</a></li>
+              <li><Link to="/resume">Resume Viewer & Download</Link></li>
+              <li><a href="/#contact">Contact & Details</a></li>
             </ul>
           </div>
 

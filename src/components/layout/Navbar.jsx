@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { Sun, Moon, Menu, X, FileText, Sparkles, Terminal, ArrowUpRight } from 'lucide-react';
+import { Sun, Moon, Menu, X, FileText, Terminal, ArrowUpRight } from 'lucide-react';
 import { useTheme } from '../../context/ThemeContext';
 import { resumeData } from '../../data/resume';
 import './Navbar.css';
@@ -31,8 +31,8 @@ export default function Navbar() {
     { label: 'Skills', href: '/#skills', type: 'hash' },
     { label: 'Experience', href: '/#experience', type: 'hash' },
     { label: 'Projects', href: '/#projects', type: 'hash' },
+    { label: 'Education', href: '/#education', type: 'hash' },
     { label: 'Resume', href: '/resume', type: 'route', icon: FileText },
-    { label: 'Resume Builder', href: '/resume-builder', type: 'route', badge: 'Tool', icon: Sparkles },
     { label: 'Contact', href: '/#contact', type: 'hash' },
   ];
 
