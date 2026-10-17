@@ -5,6 +5,8 @@ import { ThemeProvider } from './context/ThemeContext';
 import Layout from './components/layout/Layout';
 import Home from './pages/Home';
 
+import ScrollToTop from './components/common/ScrollToTop';
+
 // Lazy-load ResumePage for lightning-fast initial load
 const ResumePage = lazy(() => import('./pages/ResumePage'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage'));
@@ -32,6 +34,7 @@ export default function App() {
   return (
     <ThemeProvider>
       <BrowserRouter>
+        <ScrollToTop />
         <Layout>
           <Suspense fallback={<PageLoader />}>
             <Routes>

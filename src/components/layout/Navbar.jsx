@@ -58,7 +58,16 @@ export default function Navbar() {
     <header className={`navbar-header ${isScrolled ? 'navbar-scrolled' : ''}`}>
       <div className="container navbar-container">
         {/* Brand / Logo */}
-        <Link to="/" className="navbar-brand">
+        <Link 
+          to="/" 
+          className="navbar-brand"
+          onClick={() => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            if (window.location.hash) {
+              window.history.replaceState(null, '', '/');
+            }
+          }}
+        >
           <div className="brand-monogram">
             <span>CS</span>
           </div>

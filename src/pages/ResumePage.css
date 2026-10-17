@@ -28,6 +28,19 @@
   flex-wrap: wrap;
 }
 
+.toolbar-back-btn {
+  font-weight: 600;
+  border: 1px solid var(--accent-primary);
+  background: var(--bg-card);
+  color: var(--text-primary);
+}
+
+.toolbar-back-btn:hover {
+  background: var(--accent-primary);
+  color: #ffffff;
+  transform: translateX(-2px);
+}
+
 .resume-mode-switch {
   display: flex;
   background: var(--bg-subtle);

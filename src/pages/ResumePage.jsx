@@ -17,7 +17,7 @@ import './ResumePage.css';
 
 export default function ResumePage() {
   const { personalInfo, skills, experience, projects, education } = resumeData;
-  const [viewMode, setViewMode] = useState('embed'); // 'embed' or 'sheet'
+  const [viewMode, setViewMode] = useState('sheet'); // 'sheet' (instant clean view) or 'embed' (pdf reader)
   const [copiedLink, setCopiedLink] = useState(false);
 
   const handlePrint = () => {
@@ -44,19 +44,19 @@ export default function ResumePage() {
             <div className="resume-mode-switch">
               <button
                 type="button"
-                className={`mode-btn ${viewMode === 'embed' ? 'mode-btn-active' : ''}`}
-                onClick={() => setViewMode('embed')}
-              >
-                <Eye size={15} />
-                <span>PDF Document</span>
-              </button>
-              <button
-                type="button"
                 className={`mode-btn ${viewMode === 'sheet' ? 'mode-btn-active' : ''}`}
                 onClick={() => setViewMode('sheet')}
               >
                 <FileText size={15} />
                 <span>Web Sheet</span>
+              </button>
+              <button
+                type="button"
+                className={`mode-btn ${viewMode === 'embed' ? 'mode-btn-active' : ''}`}
+                onClick={() => setViewMode('embed')}
+              >
+                <Eye size={15} />
+                <span>PDF Document</span>
               </button>
             </div>
           </div>
@@ -87,9 +87,10 @@ export default function ResumePage() {
               target="_blank"
               rel="noopener noreferrer"
               className="btn btn-secondary"
+              title="Open full PDF in a new browser tab"
             >
               <ExternalLink size={16} />
-              <span>Open PDF</span>
+              <span>Open PDF (New Tab)</span>
             </a>
 
             <a
