@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 import { Link } from 'react-router-dom';
-import { Mail, Phone, MapPin, ArrowUp, Terminal } from 'lucide-react';
+import { Mail, Phone, MapPin, ArrowUp } from 'lucide-react';
 import { GithubIcon, LinkedinIcon } from '../common/Icons';
 import { resumeData } from '../../data/resume';
 import './Footer.css';
@@ -25,7 +25,6 @@ export default function Footer() {
               <div>
                 <h3 className="footer-brand-name">{resumeData.personalInfo.name}</h3>
                 <p className="footer-brand-title">
-                  <Terminal size={12} className="inline-icon" />
                   {resumeData.personalInfo.title}
                 </p>
               </div>

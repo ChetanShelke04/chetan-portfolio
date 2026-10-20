@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { Sun, Moon, Menu, X, FileText, Terminal, ArrowUpRight } from 'lucide-react';
+import { Sun, Moon, Menu, X, FileText, ArrowUpRight } from 'lucide-react';
 import { useTheme } from '../../context/ThemeContext';
 import { resumeData } from '../../data/resume';
 import './Navbar.css';
@@ -73,10 +73,7 @@ export default function Navbar() {
           </div>
           <div className="brand-info">
             <span className="brand-name">{resumeData.personalInfo.name}</span>
-            <span className="brand-title">
-              <Terminal size={11} className="title-icon" />
-              Backend Developer
-            </span>
+            <span className="brand-title">Java Backend Developer</span>
           </div>
         </Link>
 
